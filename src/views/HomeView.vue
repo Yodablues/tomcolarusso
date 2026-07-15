@@ -23,6 +23,12 @@
           </a>
         </Button>
         <Button as-child variant="outline" size="lg">
+          <a href="https://www.instagram.com/etcolarusso" target="_blank" rel="noopener noreferrer">
+            <InstagramIcon class="h-4 w-4 mr-2" />
+            Instagram
+          </a>
+        </Button>
+        <Button as-child variant="outline" size="lg">
           <RouterLink to="/contact">Contact Me</RouterLink>
         </Button>
       </div>
@@ -84,6 +90,7 @@
 import { ExternalLink } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import heroImage from '@/assets/photos/IMG_4368.JPEG'
 
 const skills = [
