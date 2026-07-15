@@ -28,6 +28,15 @@
       </div>
     </section>
 
+    <!-- Hero Image -->
+    <section class="px-6 max-w-3xl mx-auto flex justify-center">
+      <img
+        :src="heroImage"
+        alt="Tom Colarusso"
+        class="w-full max-w-sm aspect-[3/4] object-cover object-top rounded-xl"
+      />
+    </section>
+
     <!-- Divider -->
     <div class="border-t border-border" />
 
@@ -75,6 +84,7 @@
 import { ExternalLink } from '@lucide/vue'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import heroImage from '@/assets/photos/IMG_4368.JPEG'
 
 const skills = [
   {

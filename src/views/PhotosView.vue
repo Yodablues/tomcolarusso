@@ -71,11 +71,18 @@ interface Photo {
   alt: string
 }
 
-// Add your photos to src/assets/photos/ and import them here.
-// Example:
-// import myPhoto from '@/assets/photos/my-photo.jpg'
-// const photos: Photo[] = [{ src: myPhoto, alt: 'Description' }]
-const photos: Photo[] = []
+const modules = import.meta.glob<{ default: string }>(
+  '@/assets/photos/*.{jpg,jpeg,png,webp,gif,JPG,JPEG,PNG,WEBP,GIF}',
+  { eager: true },
+)
+
+const photos: Photo[] = Object.keys(modules)
+  .sort()
+  .map((path) => {
+    const name = path.split('/').pop() ?? ''
+    const alt = name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ')
+    return { src: modules[path]!.default, alt }
+  })
 
 const lightboxOpen = ref(false)
 const activeIndex = ref(0)
